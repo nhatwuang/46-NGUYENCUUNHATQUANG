@@ -22,9 +22,7 @@ def print_student_list():
     YÊU CẦU 2:
     - In ra tiêu đề "--- DANH SACH SINH VIEN ---".
     - Nếu danh sách trống, in ra "Danh sach trong.".
-    - Nếu không, duyệt qua `student_list` và in thông tin mỗi sinh viên
-      trên một dòng theo định dạng:
-      " - Ten: [Họ tên], Nam sinh: [Năm sinh], Dia chi: [Địa chỉ]"
+    - Nếu không, duyệt qua `student_list` và in thông tin mỗi sinh viên.
     """
     print("--- DANH SACH SINH VIEN ---")
     if not student_list:
@@ -32,3 +30,20 @@ def print_student_list():
     else:
         for s in student_list:
             print(f" - Ten: {s['name']}, Nam sinh: {s['year_of_birth']}, Dia chi: {s['address']}")
+
+
+def search_student(search_name):
+    """
+    YÊU CẦU 3:
+    - In ra tiêu đề "--- KET QUA TIM KIEM ---".
+    - Tìm kiếm sinh viên có tên chứa `search_name` (không phân biệt hoa thường).
+    - In thông tin nếu tìm thấy, ngược lại in "Khong tim thay sinh vien nao."
+    """
+    print("--- KET QUA TIM KIEM ---")
+    found = False
+    for s in student_list:
+        if search_name.lower() in s['name'].lower():
+            print(f" - Ten: {s['name']}, Nam sinh: {s['year_of_birth']}, Dia chi: {s['address']}")
+            found = True
+    if not found:
+        print("Khong tim thay sinh vien nao.")
